@@ -7,18 +7,18 @@ import ua.dudka.abstract_test.AbstractMatrixMultiplierTest;
 /**
  * @author Rostislav Dudka
  */
-public class LoopMatrixMultiplierTest extends AbstractMatrixMultiplierTest {
+public class StreamMatrixMultiplierTest extends AbstractMatrixMultiplierTest {
 
-    private static MatrixMultiplier matrixMultiplier;
+    private static MatrixMultiplier streamMatrixMultiplier;
 
     @BeforeClass
     public static void setUp() throws Exception {
-        matrixMultiplier = new LoopMatrixMultiplier();
+        streamMatrixMultiplier = new StreamMatrixMultiplier();
     }
 
     @Test
     public void multiplySmallMatricesShouldReturnResultMatrix() throws Exception {
-        Matrix resultMatrix = matrixMultiplier.multiply(LEFT_SMALL_MATRIX, RIGHT_SMALL_MATRIX);
+        Matrix resultMatrix = streamMatrixMultiplier.multiply(LEFT_SMALL_MATRIX, RIGHT_SMALL_MATRIX);
 
         checkResultMatrixSizes(SMALL_MATRIX_SIZE, resultMatrix);
         checkResultMatrixContent(resultMatrix);
@@ -26,7 +26,7 @@ public class LoopMatrixMultiplierTest extends AbstractMatrixMultiplierTest {
 
     @Test
     public void multiplyBigMatricesShouldReturnResultMatrix() throws Exception {
-        Matrix resultMatrix = matrixMultiplier.multiply(LEFT_BIG_MATRIX, RIGHT_BIG_MATRIX);
+        Matrix resultMatrix = streamMatrixMultiplier.multiply(LEFT_BIG_MATRIX, RIGHT_BIG_MATRIX);
 
         checkResultMatrixSizes(BIG_MATRIX_SIZE, resultMatrix);
     }
