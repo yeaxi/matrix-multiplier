@@ -31,7 +31,7 @@ public class Matrix {
     }
 
     public List<Row> createRows() {
-        List<Row> rows = new ArrayList<>();
+        List<Row> rows = new ArrayList<>(this.size);
         for (int i = 0; i < this.size; i++) {
             rows.add(new Row(i, values[i]));
         }
@@ -39,7 +39,7 @@ public class Matrix {
     }
 
     public List<Column> createColumns() {
-        List<Column> columns = new ArrayList<>();
+        List<Column> columns = new ArrayList<>(this.size);
         for (int i = 0; i < this.size; i++) {
             int[] column = new int[this.size];
             for (int j = 0; j < values[i].length; j++) {
